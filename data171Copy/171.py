@@ -1,6 +1,4 @@
-
-
-
+import matplotlib
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import matplotlib.pyplot as plt
 import math
@@ -11,6 +9,11 @@ from numpy import double
 
 
 def graf():
+    font = {'family': 'normal',
+            'weight': 'bold',
+            'size': 8}
+
+    matplotlib.rc('font', **font)
     t5 = []
     t15 = []
     lamda15 = []
@@ -168,15 +171,15 @@ def graf():
     # #
     # #ax1.legend())
     #
-    ax1.set_ylabel('Security µs')
-    ax2.set_ylabel('AcquirerBank')
-    ax3.set_ylabel('IssuerBank')
-    ax4.set_ylabel('End-to-end  \n latency')
+    ax1.set_ylabel('Security µs', fontdict=font)
+    ax2.set_ylabel('AcquirerBank', fontdict=font)
+    ax3.set_ylabel('IssuerBank', fontdict=font)
+    ax4.set_ylabel('End-to-end  \n latency', fontdict=font)
 
 
 
 
-    ax4.set_xlabel('Time (sec)')
+    ax4.set_xlabel('Time (sec)', fontdict=font)
     # ax3.set_ylabel('Event Arrival Rate')
     # #
     # ax2.set_ylabel('End to end Latency (ms)')
@@ -186,7 +189,7 @@ def graf():
     # # ax1.legend(bbox_to_anchor=(0.21, 0.7))
     # ax4.legend()
     # # #
-    ax1.legend(fontsize='x-small')
+    ax1.legend(fontsize='small')
     plt.tight_layout()
     plt.show()
 

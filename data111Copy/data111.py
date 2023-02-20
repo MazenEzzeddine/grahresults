@@ -3,6 +3,7 @@
 
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import matplotlib.pyplot as plt
+import matplotlib
 import math
 
 import csv
@@ -11,6 +12,16 @@ from numpy import double
 
 
 def graf():
+    font = {'family': 'normal',
+            'weight': 'bold',
+            'size': 8}
+
+
+
+
+
+    matplotlib.rc('font', **font)
+    ###matplotlib.rc('label', 10)
     t5 = []
     t15 = []
     lamda15 = []
@@ -155,7 +166,7 @@ def graf():
     #axt = ax1.twinx()
     # ##ax1.plot(t5, lamda5)
 
-    ax1.plot(secta, sec, label='Event Arrival rate ' )
+    ax1.plot(secta, sec, label='Event Arrival rate ')
     ax1.plot(sectar, secr, label='Maximum Consumption rate' )
 
     #ax1.set_frame_on(False)  # make it transparent
@@ -172,7 +183,7 @@ def graf():
 
     #
     ax4.plot(lt, lv, 'r', label='latency (ms)')
-    ax4.plot(tr1, lr1, label='latency 2nd replica (ms)')
+    ax4.plot(tr1, lr1, 'black', label='latency 2nd replica (ms)')
     ax4.plot(tr2, lr2, 'g' , label='latency 2nd replica (ms)')
 
 
@@ -181,15 +192,15 @@ def graf():
     # #
     # #ax1.legend())
     #
-    ax1.set_ylabel('Security µs')
-    ax2.set_ylabel('AcquirerBank')
-    ax3.set_ylabel('IssuerBank')
-    ax4.set_ylabel('End-to-end  \n latency')
+    ax1.set_ylabel('Security µs', fontdict= font)
+    ax2.set_ylabel('AcquirerBank', fontdict=font)
+    ax3.set_ylabel('IssuerBank', fontdict=font)
+    ax4.set_ylabel('End-to-end  \n latency', fontdict=font)
 
 
 
 
-    ax4.set_xlabel('Time (sec)')
+    ax4.set_xlabel('Time (sec)', fontdict=font)
     # ax3.set_ylabel('Event Arrival Rate')
     # #
     # ax2.set_ylabel('End to end Latency (ms)')
@@ -199,7 +210,7 @@ def graf():
     # # ax1.legend(bbox_to_anchor=(0.21, 0.7))
     # ax4.legend()
     # # #
-    ax1.legend(fontsize='x-small')
+    ax1.legend(fontsize='small')
     plt.tight_layout()
     plt.show()
 
