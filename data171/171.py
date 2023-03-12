@@ -165,9 +165,9 @@ def graf():
     #ax3.set_xticks([])
 
     #
-    ax4.plot(lt, lv, 'r', label='latency (ms)')
-    ax4.plot(tr1, lr1, label='latency 2nd replica (ms)')
-    ax4.plot(tr2, lr2, 'g' , label='latency 2nd replica (ms)')
+    ax4.plot(lt, lv, 'r', label='end-to-end latency (ms)')
+    # ax4.plot(tr1, lr1 ,'black',  label='latency 2nd replica (ms)')
+    # ax4.plot(tr2, lr2, 'g' , label='latency 2nd replica (ms)')
 
 
 
@@ -177,7 +177,7 @@ def graf():
     ax1.set_ylabel('Security µs', fontdict=font)
     ax2.set_ylabel('AcquirerBank', fontdict=font)
     ax3.set_ylabel('IssuerBank', fontdict=font)
-    ax4.set_ylabel('End-to-end  \n latency', fontdict=font)
+    ax4.set_ylabel('End-to-end  \n latency (ms)', fontdict=font)
 
 
 

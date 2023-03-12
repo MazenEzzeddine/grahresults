@@ -18,9 +18,40 @@ def graf():
 
     matplotlib.rc('font', **font)
 
+##########################################################
+    t=0
+
+    t1lag1 = 0
+    ltlag1 = []
+    lvlag1 = []
+    with open('l1lag.csv', 'r') as csvfile:
+        plots = csv.reader(csvfile, delimiter=',')
+        for row in plots:
+            # t.append(math.floor(double(row[0])))
+            # t.append(str(row[0]))
+            ltlag1.append(t1lag1)
+            t1lag1 += 5
+            lvlag1.append(double(row[1]))
+
+##########################################################
+
+        t2lag = 0
+        lt2lag = []
+        lv2lag = []
+        with open('l2lag.csv', 'r') as csvfile:
+            plots = csv.reader(csvfile, delimiter=',')
+            for row in plots:
+                # t.append(math.floor(double(row[0])))
+                # t.append(str(row[0]))
+                lt2lag.append(t2lag)
+                t2lag += 5
+                lv2lag.append(double(row[1]))
+
+    ##########################################################
 
 
 
+###########################################################
     t=0
     lt=[]
     lv=[]
@@ -36,8 +67,10 @@ def graf():
 
 
 
+######################################################
 
 
+##########################################################
 
     sect = 0
     sec = []
@@ -93,7 +126,9 @@ def graf():
     sectrlag = 0
     secrlag = []
     sectarlag = []
-    with open('replica2.csv', 'r') as csvfile:
+    #with open('replica2.csv', 'r') as csvfile:
+    with open('replica2p.csv', 'r') as csvfile:
+
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             # t.append(math.floor(double(row[0])))
@@ -102,27 +137,33 @@ def graf():
             sectrlag += 5
             secrlag.append(double(row[1]))
 
-    fig, ax = plt.subplots(2, 2,
+    fig, ax = plt.subplots(3, 2,
                            sharex='col',
                            sharey='row')
 
 ############################################################################
-    ax[0,0].plot(secta, sec, label='Event Arrival rate ' )
-    ax[0, 0].plot(sectar, secr, label='Maximum Consumption rate' )
-    ax[1, 0].plot(lt, lv, 'r', label='latency (ms)')
 
-    ax[0,0].set_ylabel('ClientBank µs', fontdict=font)
+    ax[0, 0].plot(ltlag1, lvlag1, label= "Parent lag" )
+    ax[0, 1].plot(lt2lag, lv2lag, label=" Parent lag ")
+
+    ax[1,0].plot(secta, sec, label='Event Arrival rate ' )
+    ax[1, 0].plot(sectar, secr, label='Maximum Consumption rate' )
+    ax[2, 0].plot(lt, lv, 'r', label='latency (ms)')
+
+    ax[1,0].set_ylabel('ClientBank µs', fontdict=font)
+    ax[0,0].set_ylabel('MerchantBank µs', fontdict=font)
 
 
-    ax[1,0].set_ylabel('End to end latency (ms)', fontdict=font)
 
-    ax[1,0].set_xlabel('Time (sec)', fontdict=font)
+    ax[2,0].set_ylabel('End to end latency (ms)', fontdict=font)
+
+    ax[2,0].set_xlabel('Time (sec)', fontdict=font)
 
 
     ####################################################
-    ax[0,1].plot(sectalag, seclag, label='Event Arrival rate ' )
-    ax[0, 1].plot(sectarlag, secrlag, label='Maximum Consumption rate' )
-    ax[1, 1].plot(ltlag, lvlag, 'r', label='latency (ms)')
+    ax[1,1].plot(sectalag, seclag, label='Event Arrival rate ' )
+    ax[1, 1].plot(sectarlag, secrlag, label='Maximum Consumption rate' )
+    ax[2, 1].plot(ltlag, lvlag, 'r', label='latency (ms)')
 
     #####################################################
     # ax3.set_ylabel('Event Arrival Rate')
@@ -136,6 +177,7 @@ def graf():
     # # #
     ax[0,0].legend(fontsize='small')
     ax[0, 0].set(title= "Parent lag not taken into account \n  when autoscaling " )
+
     ax[0, 1].legend(fontsize='small')
     ax[0, 1].set(title="Parent lag taken into account \n when autoscaling")
     plt.tight_layout()

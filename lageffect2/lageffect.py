@@ -1,6 +1,9 @@
-import matplotlib
+
+
+
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 import matplotlib.pyplot as plt
+import matplotlib
 import math
 
 import csv
@@ -29,9 +32,8 @@ def graf():
 
     #############iiiiiiitttttttttttttttttttiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiooooooooooooooooooooooooooooooooooooooooooooooooooyyyyyyyyyyyyyyyyyyyyyyyyyykkkkkkkkkkkkkkkkkiiii
 
-    print('hello')
 
-    with open('arissuer171.csv', 'r') as csvfile:
+    with open('ar.csv', 'r') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             # t.append(math.floor(double(row[0])))
@@ -50,7 +52,7 @@ def graf():
     tr2 = []
     r2start = 0
     r2end=0
-    with open('rissuer171.csv', 'r') as csvfile:
+    with open('replicas.csv', 'r') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             # t.append(math.floor(double(row[0])))
@@ -75,7 +77,7 @@ def graf():
     t=0
     lt=[]
     lv=[]
-    with open('1l.csv', 'r') as csvfile:
+    with open('l1.csv', 'r') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             # t.append(math.floor(double(row[0])))
@@ -84,7 +86,78 @@ def graf():
             t += 5
             lv.append(double(row[1]))
 
-    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4,1, sharex=True)  # create the canvas for plotting
+#############################################
+    t5lag = []
+    t15lag = []
+    lamda15lag = []
+    lamda5lag = []
+
+    t1lag = []
+    lamda1lag = []
+
+    s15lag = 0
+    s5lag = 0
+    s1lag = 0
+
+    #############iiiiiiitttttttttttttttttttiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiooooooooooooooooooooooooooooooooooooooooooooooooooyyyyyyyyyyyyyyyyyyyyyyyyyykkkkkkkkkkkkkkkkkiiii
+
+    with open('ar.csv', 'r') as csvfile:
+        plots = csv.reader(csvfile, delimiter=',')
+        for row in plots:
+            # t.append(math.floor(double(row[0])))
+            # t.append(str(row[0]))
+            t15lag.append(s15)
+            s15lag += 5
+            lamda15lag.append(double(row[1]))
+
+    lr1 = [1300, 769, 593, 487, 216, 206, 190, 189, 176, 164, 155, 131, 113, 103, 92, 99, 96, 86, 81, 168, 198, 260]
+    lr2 = [863, 843, 841, 833, 818, 806, 793, 783, 771, 764, 745, 724, 695, 663, 627, 579, 563, 524, 483, 440, 358, 320,
+           282]
+
+    r1endlag = 0
+    r1startlag = 0
+    tr1lag = []
+    tr2lag = []
+    r2startlag = 0
+    r2endlag = 0
+    with open('replicas.csv', 'r') as csvfile:
+        plots = csv.reader(csvfile, delimiter=',')
+        for row in plots:
+            # t.append(math.floor(double(row[0])))
+            # t.append(str(row[0]))
+            t1lag.append(s1lag)
+
+            lamda1.append(double(row[1]))
+            if double(row[1]) == 350 and r1endlag != 1:
+                tr1lag.append(s1lag)
+                r1startlag = 1
+            if r1startlag == 1 and double(row[1]) == 175:
+                r1endlag = 1
+            if r1endlag == 1 and double(row[1]) == 350 and r2endlag != 1:
+                r2startlag = 1
+                tr2lag.append(s1lag)
+            if r2startlag == 1 and double(row[1]) == 175:
+                r2endlag = 1
+
+            s1lag += 5
+    print(tr1lag)
+
+    tlag = 0
+    ltlag = []
+    lvlag = []
+    with open('l1.csv', 'r') as csvfile:
+        plots = csv.reader(csvfile, delimiter=',')
+        for row in plots:
+            # t.append(math.floor(double(row[0])))
+            # t.append(str(row[0]))
+            ltlag.append(tlag)
+            tlag += 5
+            lag.append(double(row[1]))
+
+
+##################################
+
+    fig, (ax1, ax2) = plt.subplots(2,1, sharex=True)  # create the canvas for plotting
 
     # ax4 = plt.subplot(4, 1, 4)
     # ax1 = plt.subplot(4, 1, 1, sharex=ax4)
@@ -95,7 +168,7 @@ def graf():
     sect = 0
     sec = []
     secta = []
-    with open('arr171sec.csv', 'r') as csvfile:
+    with open('ar.csv', 'r') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             # t.append(math.floor(double(row[0])))
@@ -107,7 +180,7 @@ def graf():
     sectr = 0
     secr = []
     sectar = []
-    with open('r171sec.csv', 'r') as csvfile:
+    with open('replicas.csv', 'r') as csvfile:
         plots = csv.reader(csvfile, delimiter=',')
         for row in plots:
             # t.append(math.floor(double(row[0])))
@@ -116,29 +189,7 @@ def graf():
             sectr += 5
             secr.append(double(row[1]))
 
-    acqt = 0
-    acq = []
-    acqta = []
-    with open('arr171seco.csv', 'r') as csvfile:
-        plots = csv.reader(csvfile, delimiter=',')
-        for row in plots:
-            # t.append(math.floor(double(row[0])))
-            # t.append(str(row[0]))
-            acqta.append(acqt)
-            acqt += 5
-            acq.append(double(row[1]))
 
-    acqtr = 0
-    acqr = []
-    acqtar = []
-    with open('r171seco.csv', 'r') as csvfile:
-        plots = csv.reader(csvfile, delimiter=',')
-        for row in plots:
-            # t.append(math.floor(double(row[0])))
-            # t.append(str(row[0]))
-            acqtar.append(acqtr)
-            acqtr += 5
-            acqr.append(double(row[1]))
 
     # fig, ax1 = plt.subplots()
     #
@@ -148,38 +199,29 @@ def graf():
 
     ax1.plot(secta, sec, label='Event Arrival rate ' )
     ax1.plot(sectar, secr, label='Maximum Consumption rate' )
+    ax2.plot(lt, lv, 'r', label='latency (ms)')
+   #ax4.plot(tr1, lr1, label='latency 2nd replica (ms)')
 
     #ax1.set_frame_on(False)  # make it transparent
     #ax1.set_xticks([])
     #ax1.set_xticklabels([])
 
-    ax2.plot(acqta, acq, label='sec µs')
-    ax2.plot(acqtar, acqr, label='sec µs')
-    #ax2.set_xticks([])
 
-    ax3.plot(t15, lamda15, label='Issuer µs Arrival rate')
-    ax3.plot(t1, lamda1, label='Maximum consumption rate \n (number of replicas)')
-    #ax3.set_xticks([])
 
-    #
-    ax4.plot(lt, lv, 'r', label='latency (ms)')
-    # ax4.plot(tr1, lr1, 'black',  label='latency 2nd replica (ms)')
-    # ax4.plot(tr2, lr2, 'g' , label='latency 2nd replica (ms)')
+
 
 
 
     # #
     # #ax1.legend())
     #
-    ax1.set_ylabel('Security \n µs', fontdict=font)
-    ax2.set_ylabel('MerchantBank \n µs', fontdict=font)
-    ax3.set_ylabel('ClientBank \n µs', fontdict=font)
-    ax4.set_ylabel('End-to-end  \n latency (ms)', fontdict=font)
+    ax1.set_ylabel('Security µs', fontdict=font)
+    ax2.set_ylabel('End to end latency (ms)', fontdict=font)
 
 
 
 
-    ax4.set_xlabel('Time (sec)', fontdict=font)
+    ax1.set_xlabel('Time (sec)', fontdict=font)
     # ax3.set_ylabel('Event Arrival Rate')
     # #
     # ax2.set_ylabel('End to end Latency (ms)')
